@@ -1,0 +1,14 @@
+---
+# tasks file for web
+  - name: copy a file
+    copy: dest=/tmp src="index.html"
+    when:
+      - ansible_distribution == "RedHat"
+      - ansible_distribution_major_version == "7"
+  - name: Handler
+    template: src=index.j2 dest=/var/www/html/index.html
+    notify:
+      - Restart Apache
+  - debug:
+      msg: My Name is  {{ myname }}
+

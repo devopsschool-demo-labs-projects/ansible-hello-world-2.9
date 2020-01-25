@@ -1,5 +1,7 @@
 ---
 # tasks file for web
+  - name: Install the httpd apps
+    yum: name=httpd use_backend=yum
   - name: copy a file
     copy: dest=/tmp src="index.html"
     when:
